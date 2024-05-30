@@ -1,8 +1,16 @@
 {{ if .IsHome }}
-  <h1 class="header-verification">{{ .Site.Title }}</h1>
+  <h1 class="header-verification"
+      disable-header-verification="{{ .Site.Params.disableHeaderVerification }}">
+    {{ .Site.Title }}
+  </h1>
 {{ else }}
-  <a class="header-verification" href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
+  <a class="header-verification"
+     disable-header-verification="{{ .Site.Params.disableHeaderVerification }}"
+     href="{{ "/" | relLangURL }}">
+    {{ .Site.Title }}
+  </a>
 {{ end }}
+{{ if not .Site.Params.disableHeaderVerification }}
 <p class="header-official">
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -21,6 +29,7 @@
     /></svg
   ><span>{{ i18n "verified" }}</span>
 </p>
+{{ end }}
 <nav>
   <ul>
     {{ $currentPage := . }}

@@ -33,6 +33,7 @@ paginate = 10
   enableRelated = true
   googleVerification = ""
   enableEmojiZoomJS = true
+  disable-header-verification = true
 
 [params.git]
   repo = "https://github.com/masakichi/futu"
